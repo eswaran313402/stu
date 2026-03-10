@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Admin</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<h2>Create New Admin</h2>
+
+<form onsubmit="createAdmin(event)">
+
+<label>Admin Username</label><br>
+<input type="text" id="username" required><br><br>
+
+<label>Admin Password</label><br>
+<input type="password" id="password" required><br><br>
+
+<button type="submit">Create Admin</button>
+
+</form>
+
+<script>
+
+function createAdmin(e){
+
+    e.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    let admins = JSON.parse(localStorage.getItem("admins")) || [];
+
+    let newAdmin = {
+        username: username,
+        password: password
+    };
+
+    admins.push(newAdmin);
+
+    localStorage.setItem("admins", JSON.stringify(admins));
+
+    alert("New Admin Created Successfully");
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<h2>Admin Login</h2>
+
+<form onsubmit="loginAdmin(event)">
+
+Username <br>
+<input type="text" id="username"><br><br>
+
+Password <br>
+<input type="password" id="password"><br><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+<footer>
+<p>© 2026 Student Database System</p>
+</footer>
+
+<script>
+
+function loginAdmin(e){
+
+e.preventDefault();
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+let admins = JSON.parse(localStorage.getItem("admins")) || [];
+
+let found = admins.find(a => a.username === username && a.password === password);
+
+if(found){
+alert("Login Successful");
+window.location.href="student-list.html";
+}
+else{
+alert("Invalid Admin Login");
+}
+
+}
+
+</script>
+
+</body>
+</html>

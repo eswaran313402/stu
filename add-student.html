@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Student - Student Database</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<h1>Add Student</h1>
+</header>
+<main>
+<h2>Add Student</h2>
+
+<form onsubmit="addStudent(event)">
+
+ID <br>
+<input type="text" id="id"><br><br>
+
+Name <br>
+<input type="text" id="name"><br><br>
+
+Class <br>
+<input type="text" id="class"><br><br>
+
+Marks <br>
+<input type="text" id="marks"><br><br>
+
+<button type="submit">Add Student</button>
+
+</form>
+
+<script>
+
+function addStudent(e){
+
+e.preventDefault();
+
+let student = {
+id: document.getElementById("id").value,
+name: document.getElementById("name").value,
+class: document.getElementById("class").value,
+phone: document.getElementById("phone").value,
+email: document.getElementById("email").value
+};
+
+let students = JSON.parse(localStorage.getItem("students")) || [];
+
+students.push(student);
+
+localStorage.setItem("students", JSON.stringify(students));
+
+alert("Student Added Successfully");
+
+}
+
+</script>
+</main>
+<footer>
+<p>© 2026 Student Database System</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

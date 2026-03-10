@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Update Student Marks</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h2>Update Student Marks</h2>
+<form onsubmit="updateMarks(event)">
+Student ID <br>
+<input type="text" id="id"><br><br>
+New Marks <br>
+<input type="text" id="marks"><br><br>
+<button type="submit">Update Marks</button>
+</form>
+<script>
+function updateMarks(e){
+    e.preventDefault();
+    let id = document.getElementById("id").value;
+    let marks = document.getElementById("marks").value;
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.forEach(function(s){
+        if(s.id === id){
+            s.marks = marks;
+        }
+    });
+    localStorage.setItem("students", JSON.stringify(students));
+    alert("Marks Updated");
+}
+</script>
+</body>
+</html>

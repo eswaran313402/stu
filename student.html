@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records - Student Data Base</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+            <div id="admin-dashboard" style="display:none;">
+                <aside class="admin-sidebar">
+                    <nav>
+                        <ul>
+                            <li><a href="#dashboard">Dashboard</a></li>
+                            <li><a href="#add-student">Add Student</a></li>
+                            <li><a href="#edit-student">Edit Student</a></li>
+                            <li><a href="#delete-student">Delete Student</a></li>
+                            <li><a href="#student-list">Student List</a></li>
+                            <li><a href="#upload-documents">Upload Documents</a></li>
+                            <li><a href="#reports">Reports</a></li>
+                            <li><a href="#manage-users">Manage Users</a></li>
+                            <li><a href="#settings">Settings</a></li>
+                            <li><a href="#logout" id="admin-logout">Logout</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <section class="admin-content">
+                    <!-- Admin dashboard content will go here -->
+                </section>
+            </div>
+        <div id="login-section">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <input type="password" id="admin-password" placeholder="Enter admin password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    <header>
+        <h1>Student Record Details - Student Data Base</h1>
+        <nav class="menu-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="student.html">Student Records</a></li>
+                <li class="admin-dropdown">
+                    <a href="#" class="admin-access">Admin</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#new-admin-section">Create New Admin</a></li>
+                        <li><a href="#login-section">Login Existing Admin</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="new-admin-section">
+                <h2>Create New Admin</h2>
+                <form id="new-admin-form">
+                    <input type="text" id="admin-name" placeholder="Name" required>
+                    <input type="tel" id="admin-phone" placeholder="Phone Number" required>
+                    <input type="text" id="admin-qualification" placeholder="Qualification" required>
+                    <input type="text" id="admin-address" placeholder="Address" required>
+                    <button type="submit">Create Admin</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Add Student</h2>
+            <form id="student-form">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="number" id="age" placeholder="Age" required>
+                <input type="text" id="grade" placeholder="Grade" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+            <div id="admin-section" style="display:none;">
+                <button id="download-xls">Download as Excel</button>
+                <button id="save-xls" style="display:none;">Save</button>
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="student-table-body">
+                <!-- Student records will be inserted here -->
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2026 Eswaran. All rights reserved.</p>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    </footer>
+    <script src="student.js"></script>
+</body>
+</html>
